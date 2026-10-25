@@ -87,7 +87,7 @@ export async function checkout(): Promise<CheckoutReturn> {
 		}
 
 		const stripeSession = await stripe.checkout.sessions.create({
-			payment_method_types: ['card'],
+			allowed_payment_method_types: ['card'],
 			line_items: orderItems.map(item => ({
 				price_data: {
 					currency: 'usd',
